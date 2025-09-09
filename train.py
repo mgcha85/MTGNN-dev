@@ -15,6 +15,7 @@ import sys
 from random import randrange
 from matplotlib import pyplot as plt
 import time
+from safetensors.torch import save_file
 
 plt.rcParams['savefig.dpi'] = 1200
 
@@ -75,7 +76,7 @@ parser.add_argument('--data', type=str, default='./data/sm_data.txt',
                     help='location of the data file')
 parser.add_argument('--log_interval', type=int, default=2000, metavar='N',
                     help='report interval')
-parser.add_argument('--save', type=str, default='model/Bayesian/o_model.pt',
+parser.add_argument('--save', type=str, default='model/Bayesian/o_model.safetensors',
                     help='path to save the final model')
 parser.add_argument('--optim', type=str, default='adam')
 parser.add_argument('--L1Loss', type=bool, default=True)
@@ -202,8 +203,8 @@ try:
         print('epoch:',epoch)
         epoch_start_time = time.time()
         train_loss = train(Data, Data.train[0], Data.train[1], model, criterion, optim, args.batch_size)
-    with open(args.save, 'wb') as f:
-        torch.save(model, f)        
+    save_file(model.state_dict(), args.save)
+
 except KeyboardInterrupt:
     print('-' * 89)
     print('Exiting from training early')

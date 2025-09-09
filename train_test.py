@@ -12,6 +12,8 @@ from util import *
 from trainer import Optim
 import sys
 from random import randrange
+from safetensors.torch import save_file, load_file
+
 # import matplotlib
 # matplotlib.use('Agg')
 from matplotlib import pyplot as plt
@@ -620,7 +622,7 @@ parser.add_argument('--data', type=str, default='./data/sm_data.txt',
                     help='location of the data file')
 parser.add_argument('--log_interval', type=int, default=2000, metavar='N',
                     help='report interval')
-parser.add_argument('--save', type=str, default='model/Bayesian/model.pt',
+parser.add_argument('--save', type=str, default='model/Bayesian/model.safetensors',
                     help='path to save the final model')
 parser.add_argument('--optim', type=str, default='adam')
 parser.add_argument('--L1Loss', type=bool, default=True)
@@ -774,8 +776,6 @@ def main(experiment):
         print('length of testing set=',Data.test[0].shape[0])#Zaid
         print('valid=',int((0.43 + 0.3) * Data.n))
         
-       
-        
         model = gtnet(args.gcn_true, args.buildA_true, gcn_depth, args.num_nodes,
                     device, Data.adj, dropout=dropout, subgraph_size=k,
                     node_dim=node_dim, dilation_exponential=dilation_ex,
@@ -846,8 +846,11 @@ def main(experiment):
                 sum_loss=val_loss+val_rae-val_corr
                 if (not math.isnan(val_corr)) and val_loss < best_rse:
                 #if val_loss < best_rse:
-                    with open(args.save, 'wb') as f:
-                        torch.save(model, f)
+                    # with open(args.save, 'wb') as f:
+                    #     torch.save(model, f)
+
+                    save_file(model.state_dict(), args.save)
+
                     best_val = sum_loss
                     best_rse= val_loss
                     best_rae= val_rae
@@ -879,9 +882,6 @@ def main(experiment):
     with open('model/Bayesian/hp.txt',"w") as f:
         f.write(str(best_hp))
         f.close()
-    # Load the best saved model.
-    with open(args.save, 'rb') as f:
-        model = torch.load(f)
 
     vtest_acc, vtest_rae, vtest_corr, vtest_smape = evaluate(Data, Data.valid[0], Data.valid[1], model, evaluateL2, evaluateL1,
                                          args.batch_size, True)

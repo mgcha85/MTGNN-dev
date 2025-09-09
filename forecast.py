@@ -1,3 +1,4 @@
+import ast
 import pickle
 import numpy as np
 import os
@@ -12,8 +13,13 @@ from matplotlib import pyplot
 import random
 import seaborn as sns
 
+from safetensors.torch import load_file
+from net import gtnet
+import torch.nn as nn
 
 pyplot.rcParams['savefig.dpi'] = 1200
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
+
 
 def map_name_to_abbreviation(name):
     abbreviation_dict = {}
@@ -436,7 +442,7 @@ set_random_seed(fixed_seed)
 
 
 data_file='./data/sm_data.txt'
-model_file='model/Bayesian/o_model.pt'
+model_file='model/Bayesian/o_model.safetensors'
 nodes_file='data/data.csv'
 graph_file='data/graph.csv'
 
@@ -460,27 +466,66 @@ dat = np.zeros(rawdat.shape)
 for i in range(m):
     scale[i] = np.max(np.abs(rawdat[:, i]))
     dat[:, i] = rawdat[:, i] / np.max(np.abs(rawdat[:, i]))
-    
+   
+scale = torch.from_numpy(scale).to(device=device)
+# dat = torch.from_numpy(dat)
 
 print('data shape:',dat.shape)
 
 #preparing last part of the data to be used for the forecast
 P=10
+
 X= torch.from_numpy(dat[-P:, :]) #look back 10 months
 X = torch.unsqueeze(X,dim=0)
 X = torch.unsqueeze(X,dim=1)
 X = X.transpose(2,3)
-X = X.to(torch.float) #torch.Size([1, 1, 142, 10])
-
+X = X.to(torch.float)
+X = X.to(device)
 
 X.requires_grad = True #explainability
 
+hp_path = "model/Bayesian/hp.txt"
+with open(hp_path, "r") as f:
+    best_hp = ast.literal_eval(f.read())
+
+(gcn_depth, _lr, conv, res, skip, end,
+ k, dropout, dilation_ex, node_dim,
+ prop_alpha, tanh_alpha, layer, _) = best_hp
 
 #load the model
-model=None
-with open(model_file, 'rb') as f:
-    model = torch.load(f)
+# ✅ 동일 아키텍처로 모델 인스턴스 생성 (훈련 시 하이퍼파라미터와 일치해야 함)
+model = gtnet(
+    gcn_true=True,
+    buildA_true=True,
+    gcn_depth=gcn_depth,
+    num_nodes=m,
+    device=device,
+    predefined_A=None,
+    static_feat=None,
+    dropout=dropout,
+    subgraph_size=k,
+    node_dim=node_dim,
+    dilation_exponential=dilation_ex,
+    conv_channels=conv,
+    residual_channels=res,
+    skip_channels=skip,
+    end_channels=end,
+    seq_length=P,          # 학습의 seq_in_len과 동일해야 함(기본 10)
+    in_dim=1,
+    out_dim=36,            # 학습의 seq_out_len과 동일
+    layers=layer,
+    propalpha=prop_alpha,
+    tanhalpha=tanh_alpha,
+    layer_norm_affline=False
+).to(device)
 
+
+# ✅ safetensors에서 state_dict 로드
+
+print(device)
+state = load_file(model_file, device=device)
+model.load_state_dict(state)
+model.eval()
 
 # Bayesian estimation
 num_runs = 10
@@ -501,6 +546,7 @@ for _ in range(num_runs):
 outputs = torch.stack(outputs)
 
 
+dat = torch.from_numpy(dat).to(device=device)
 Y=torch.mean(outputs,dim=0)
 variance = torch.var(outputs, dim=0)#variance
 std_dev = torch.std(outputs, dim=0)#standard deviation
@@ -509,6 +555,7 @@ z=1.96
 confidence=z*std_dev/torch.sqrt(torch.tensor(num_runs))
 
 dat*=scale
+
 Y*=scale
 variance*=scale
 confidence*=scale

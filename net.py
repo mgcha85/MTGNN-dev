@@ -198,7 +198,7 @@ class gtnet(nn.Module):
     def compute_saliency(self, input, time_step, node_idx, time=False):
 
         # Enable gradient computation for the input
-        input.requires_grad = True
+        # input.requires_grad = True
 
         # Forward pass
         output = self(input)
@@ -351,13 +351,13 @@ class gtnet(nn.Module):
 
         # Plot heatmap for tensor t1
         pyplot.subplot(2, 1, 1)
-        sns.heatmap(t1.detach().unsqueeze(0).numpy(), cmap='YlGnBu', annot=False, fmt=".2f", xticklabels=month_year_labels,yticklabels=False)
+        sns.heatmap(t1.cpu().detach().unsqueeze(0).numpy(), cmap='YlGnBu', annot=False, fmt=".2f", xticklabels=month_year_labels,yticklabels=False)
         pyplot.axvline(x=10, color='red', linestyle='-', linewidth=2)       
         pyplot.title(f"{label1}")
 
         # Plot heatmap for tensor t2
         pyplot.subplot(2, 1, 2)
-        sns.heatmap(t2.detach().unsqueeze(0).numpy(), cmap='YlGnBu', annot=False, fmt=".2f", xticklabels=month_year_labels,yticklabels=False)
+        sns.heatmap(t2.cpu().detach().unsqueeze(0).numpy(), cmap='YlGnBu', annot=False, fmt=".2f", xticklabels=month_year_labels,yticklabels=False)
         pyplot.axvline(x=10, color='red', linestyle='-', linewidth=2)
         pyplot.title(f"{label2}")
 
