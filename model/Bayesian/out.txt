@@ -1,0 +1,110 @@
+best val loss= 1.0689542470768663
+best hps= [2, 0.0005, 16, 32, 128, 256, 20, 0.6, 1, 30, 0.2, 2, 1, 188]
+validation r= 0
+EVALUATE RESULTS:
+tensor(29.2889) tensor(60.5174)
+tensor(28.0651) tensor(61.4567)
+tensor(29.6192) tensor(60.9184)
+tensor(27.2802) tensor(58.5763)
+tensor(24.4237) tensor(54.0712)
+tensor(22.7233) tensor(50.7944)
+tensor(20.0537) tensor(45.4915)
+tensor(15.3879) tensor(39.1042)
+tensor(21.6697) tensor(31.9424)
+tensor(15.9414) tensor(24.8586)
+tensor(15.3633) tensor(17.4673)
+tensor(16.7062) tensor(10.4512)
+tensor(15.9006) tensor(4.0132)
+tensor(12.1595) tensor(-2.0715)
+tensor(9.8900) tensor(-6.9355)
+tensor(16.8258) tensor(-11.0851)
+tensor(8.2007) tensor(-14.3671)
+tensor(12.4271) tensor(-17.1600)
+tensor(11.2463) tensor(-9.2487)
+tensor(15.6359) tensor(-3.8311)
+tensor(17.2632) tensor(2.0896)
+tensor(21.1799) tensor(3.7756)
+tensor(24.3608) tensor(11.0198)
+tensor(22.9993) tensor(12.6689)
+tensor(25.4813) tensor(18.6430)
+tensor(23.7020) tensor(19.8205)
+tensor(28.4059) tensor(20.2155)
+tensor(30.3944) tensor(20.5146)
+tensor(31.0846) tensor(24.9984)
+tensor(39.4699) tensor(24.1838)
+tensor(44.1876) tensor(22.7252)
+tensor(41.2655) tensor(21.1207)
+tensor(46.8215) tensor(18.8730)
+tensor(51.0262) tensor(16.1839)
+tensor(52.0905) tensor(32.7782)
+tensor(42.3614) tensor(31.8597)
+testing r= 0
+Test Window Feature: tensor([0.2633, 0.5334, 0.5184, 0.5682, 0.6144, 0.6562, 0.6948, 0.8123, 0.7715,
+        0.7850, 0.7155, 0.6384, 0.6300, 0.6194, 0.6145, 0.7724, 0.7052, 0.8636,
+        0.8037, 0.8064, 0.7184, 0.7281, 0.7113, 0.8504, 0.9248, 0.8420, 0.7507,
+        0.7263, 0.6200, 0.5045, 0.5553, 0.5667, 0.6350, 0.5521, 0.5476, 0.4774,
+        0.5773, 0.6726, 0.6355, 0.5747, 0.5119, 0.5270, 0.5481, 0.4853, 0.6075,
+        0.5579], dtype=torch.float64)
+**************x_input*******************
+tensor([0.2633, 0.5334, 0.5184, 0.5682, 0.6144, 0.6562, 0.6948, 0.8123, 0.7715,
+        0.7850], dtype=torch.float64)
+**************-------*******************
+----------------------------Predicted months 1 to 36 --------------------------------------------------
+torch.Size([36, 142]) torch.Size([36, 142])
+tensor(0.5239) tensor(0.7155, dtype=torch.float64)
+tensor(0.5344) tensor(0.6384, dtype=torch.float64)
+tensor(0.4838) tensor(0.6300, dtype=torch.float64)
+tensor(0.4114) tensor(0.6194, dtype=torch.float64)
+tensor(0.3396) tensor(0.6145, dtype=torch.float64)
+tensor(0.3078) tensor(0.7724, dtype=torch.float64)
+tensor(0.2338) tensor(0.7052, dtype=torch.float64)
+tensor(0.1772) tensor(0.8636, dtype=torch.float64)
+tensor(0.2594) tensor(0.8037, dtype=torch.float64)
+tensor(0.2004) tensor(0.8064, dtype=torch.float64)
+tensor(0.1199) tensor(0.7184, dtype=torch.float64)
+tensor(0.1158) tensor(0.7281, dtype=torch.float64)
+tensor(0.1287) tensor(0.7113, dtype=torch.float64)
+tensor(0.1012) tensor(0.8504, dtype=torch.float64)
+tensor(0.0389) tensor(0.9248, dtype=torch.float64)
+tensor(0.1561) tensor(0.8420, dtype=torch.float64)
+tensor(0.0920) tensor(0.7507, dtype=torch.float64)
+tensor(0.0925) tensor(0.7263, dtype=torch.float64)
+tensor(0.1403) tensor(0.6200, dtype=torch.float64)
+tensor(0.2043) tensor(0.5045, dtype=torch.float64)
+tensor(0.1644) tensor(0.5553, dtype=torch.float64)
+tensor(0.2687) tensor(0.5667, dtype=torch.float64)
+tensor(0.2418) tensor(0.6350, dtype=torch.float64)
+tensor(0.2423) tensor(0.5521, dtype=torch.float64)
+tensor(0.2709) tensor(0.5476, dtype=torch.float64)
+tensor(0.2935) tensor(0.4774, dtype=torch.float64)
+tensor(0.3232) tensor(0.5773, dtype=torch.float64)
+tensor(0.3208) tensor(0.6726, dtype=torch.float64)
+tensor(0.3234) tensor(0.6355, dtype=torch.float64)
+tensor(0.3161) tensor(0.5747, dtype=torch.float64)
+tensor(0.4131) tensor(0.5119, dtype=torch.float64)
+tensor(0.3908) tensor(0.5270, dtype=torch.float64)
+tensor(0.4940) tensor(0.5481, dtype=torch.float64)
+tensor(0.5276) tensor(0.4853, dtype=torch.float64)
+tensor(0.5386) tensor(0.6075, dtype=torch.float64)
+tensor(0.2552) tensor(0.5579, dtype=torch.float64)
+------------------------------------------------------------------------------------------------------------
+rrse= 791044.0969193202 / 1203440.6606037158
+********************************************************************************************************
+final test rse 0.6573 | test rae 0.7476 | test corr -0.0369 | test smape 0.4777
+********************************************************************************************************
+
+
+
+1 run average
+
+
+
+valid   rse     rae     corr    s-mape
+mean    0.5159  0.6557  0.0463  0.4131
+std     0.0000  0.0000  0.0000  0.0000
+
+
+
+test    rse     rae     corr    s-mape
+mean    0.6573  0.7476  -0.0369 0.4777
+std     0.0000  0.0000  0.0000  0.0000

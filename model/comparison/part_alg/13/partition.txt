@@ -1,0 +1,2 @@
+[52, 69, 74, 139]
+['Penetration Testing', 'Rank Correlation', 'Identity-Based Encryption (IBE)', 'Image Recognition']

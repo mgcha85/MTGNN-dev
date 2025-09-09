@@ -1,0 +1,2 @@
+1- curriculum learning+1 (step=1, batch=2, increase=6) - change by batch
+

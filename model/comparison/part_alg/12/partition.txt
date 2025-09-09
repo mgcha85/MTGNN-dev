@@ -1,0 +1,2 @@
+[7, 12, 57, 98, 128]
+['Zero-day', 'Brute Force Attack', 'Least Privilege', 'Data Augmentation', 'Password Management']

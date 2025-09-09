@@ -1,0 +1,14 @@
+
+1 run average
+
+
+
+valid   rse     rae     corr    s-mape
+mean    0.4483  0.5572    nan   0.3560
+std     0.0000  0.0000    nan   0.0000
+
+
+
+test    rse     rae     corr    s-mape
+mean    0.4375  0.4877  -0.1634 0.3575
+std     0.0000  0.0000  0.0000  0.0000

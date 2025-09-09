@@ -1,0 +1,2 @@
+[15, 61, 70, 103, 112, 120, 127]
+['Cryptojacking', 'Rate Limiting', 'Strong Authentication', 'Noise Injection', 'Virtual Keyboards', 'Certificate Pinning', 'Password Strength Meters']

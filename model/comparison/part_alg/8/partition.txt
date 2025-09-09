@@ -1,0 +1,2 @@
+[56, 62, 72, 73, 88, 105, 116, 123, 140]
+['Multi Factor Authentication', 'Graphical Model', 'Https', 'Continuous Authentication', 'Secure Boot', 'Network Segmentation', 'ONE Time Password', 'SIEM', 'Hypergame']

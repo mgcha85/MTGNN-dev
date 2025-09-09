@@ -1,0 +1,2 @@
+[10, 41, 89, 94, 100, 118, 129, 132]
+['Disinformation/Misinformation', 'Mentions of Session Hijacking', 'Merkle Signature', 'Application Whitelisting', 'Defensive Distillation', 'Password Hashing', 'Password Policy', 'Data Leakage DETECTION/PREVENTION']

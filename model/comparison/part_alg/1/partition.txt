@@ -1,0 +1,2 @@
+[5, 8, 33, 34, 58, 66, 67, 83, 85, 95, 104, 106, 107, 109, 111, 113, 117, 130, 135, 138]
+['Trojan', 'Advanced Persistent Threat', 'Mentions of DNS Spoofing', 'Mentions of Dropper', 'Session Management', 'Traffic Shaping', 'Packet Filtering', 'Split Manufacturing', 'File Integrity Monitoring', 'Data Backups', 'Taint Analysis', 'User Behavior Analytics', 'Deception Technology', 'Dynamic Resource Management', 'Darknet Monitoring', 'Code Signing', 'Dynamic Binary Instrumentation', 'Graphical Authentication', 'Keystroke Dynamics', 'Source Identification']

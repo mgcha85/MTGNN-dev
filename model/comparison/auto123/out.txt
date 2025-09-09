@@ -1,0 +1,93 @@
+best val loss= 2.6398644175348367
+best hps= [3, 0.005, 4, 32, 128, 512, 80, 0.6, 2, 20, 0.6, 0.05, 2, 11]
+validation r= 114
+EVALUATE RESULTS:
+tensor(4.1387) tensor(3.8197)
+tensor(3.0750) tensor(3.4073)
+tensor(4.0650) tensor(2.9340)
+tensor(4.0512) tensor(2.4200)
+tensor(3.5287) tensor(2.7948)
+tensor(2.8733) tensor(2.3483)
+tensor(3.0842) tensor(2.6559)
+tensor(3.0148) tensor(2.5131)
+tensor(2.0768) tensor(2.2393)
+tensor(2.8460) tensor(1.9556)
+tensor(2.2887) tensor(2.3216)
+tensor(3.1334) tensor(2.8914)
+tensor(2.9329) tensor(2.6174)
+tensor(3.2024) tensor(2.8123)
+tensor(2.6785) tensor(2.6334)
+tensor(2.8674) tensor(2.2934)
+tensor(2.8741) tensor(2.4385)
+tensor(2.7251) tensor(2.3560)
+tensor(3.8128) tensor(2.0111)
+tensor(2.9590) tensor(1.9003)
+tensor(4.4664) tensor(1.5436)
+tensor(4.6687) tensor(1.5662)
+tensor(5.1719) tensor(1.2396)
+tensor(5.5160) tensor(0.9085)
+tensor(5.2044) tensor(0.7132)
+tensor(6.0662) tensor(0.4161)
+tensor(6.6246) tensor(0.3962)
+tensor(6.6020) tensor(0.1664)
+tensor(5.9115) tensor(-0.0454)
+tensor(8.0557) tensor(0.1553)
+tensor(6.4800) tensor(0.0313)
+tensor(7.5474) tensor(0.3088)
+tensor(7.8392) tensor(0.3792)
+tensor(7.7019) tensor(0.3312)
+tensor(7.8087) tensor(0.5381)
+tensor(8.9484) tensor(0.7682)
+testing r= 0
+Test Window Feature: tensor([0.2633, 0.5334, 0.5184, 0.5682, 0.6144, 0.6562, 0.6948, 0.8123, 0.7715,
+        0.7850, 0.7155, 0.6384, 0.6300, 0.6194, 0.6145, 0.7724, 0.7052, 0.8636,
+        0.8037, 0.8064, 0.7184, 0.7281, 0.7113, 0.8504, 0.9248, 0.8420, 0.7507,
+        0.7263, 0.6200, 0.5045, 0.5553, 0.5667, 0.6350, 0.5521, 0.5476, 0.4774,
+        0.5773, 0.6726, 0.6355, 0.5747, 0.5119, 0.5270, 0.5481, 0.4853, 0.6075,
+        0.5579], dtype=torch.float64)
+**************x_input*******************
+tensor([0.2633, 0.5334, 0.5184, 0.5682, 0.6144, 0.6562, 0.6948, 0.8123, 0.7715,
+        0.7850], dtype=torch.float64)
+**************-------*******************
+----------------------------Predicted months 1 to 36 --------------------------------------------------
+torch.Size([36, 123]) torch.Size([36, 123])
+tensor(0.7124) tensor(0.7155, dtype=torch.float64)
+tensor(0.5238) tensor(0.6384, dtype=torch.float64)
+tensor(0.6599) tensor(0.6300, dtype=torch.float64)
+tensor(0.6791) tensor(0.6194, dtype=torch.float64)
+tensor(0.5838) tensor(0.6145, dtype=torch.float64)
+tensor(0.4713) tensor(0.7724, dtype=torch.float64)
+tensor(0.5027) tensor(0.7052, dtype=torch.float64)
+tensor(0.4955) tensor(0.8636, dtype=torch.float64)
+tensor(0.3300) tensor(0.8037, dtype=torch.float64)
+tensor(0.4378) tensor(0.8064, dtype=torch.float64)
+tensor(0.3794) tensor(0.7184, dtype=torch.float64)
+tensor(0.5060) tensor(0.7281, dtype=torch.float64)
+tensor(0.4835) tensor(0.7113, dtype=torch.float64)
+tensor(0.5123) tensor(0.8504, dtype=torch.float64)
+tensor(0.4501) tensor(0.9248, dtype=torch.float64)
+tensor(0.4530) tensor(0.8420, dtype=torch.float64)
+tensor(0.4685) tensor(0.7507, dtype=torch.float64)
+tensor(0.4337) tensor(0.7263, dtype=torch.float64)
+tensor(0.6109) tensor(0.6200, dtype=torch.float64)
+tensor(0.5071) tensor(0.5045, dtype=torch.float64)
+tensor(0.7409) tensor(0.5553, dtype=torch.float64)
+tensor(0.7602) tensor(0.5667, dtype=torch.float64)
+tensor(0.8557) tensor(0.6350, dtype=torch.float64)
+tensor(0.9107) tensor(0.5521, dtype=torch.float64)
+tensor(0.8835) tensor(0.5476, dtype=torch.float64)
+
+
+1 run average
+
+
+
+valid   rse     rae     corr    s-mape
+mean    1.2481  1.3120  0.0775  0.3527
+std     0.0732  0.0723  0.0209  0.0188
+
+
+
+test    rse     rae     corr    s-mape
+mean    3.1986  2.8899  -0.1678 0.4110
+std     0.4455  0.3267  0.0684  0.0346

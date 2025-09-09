@@ -1,0 +1,2 @@
+[11, 39, 55, 63, 84, 101]
+['Targeted Attack', 'Mentions of Supply Chain', 'Dynamic Analysis', 'Honeypot', 'Vulnerability Management', 'RRAM']

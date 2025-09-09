@@ -1,0 +1,2 @@
+[96, 124]
+['Hidden Markov Model', 'Standardized Communication']

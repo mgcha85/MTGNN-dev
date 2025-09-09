@@ -1,0 +1,100 @@
+BO: Biometrics
+MTD: Moving Target Defense
+LP: Least Privilege
+VA: Vulnerability Assessment
+FIM: File Integrity Monitoring
+HP: Honeypot
+DP: Data Provenance
+AT: Attack Tree
+PF: Packet Filtering
+BH: Blackholing
+VS: Vulnerability Scanner
+AW: Application Whitelisting
+DLD: Data Leakage DETECTION/PREVENTION
+DA: Data Augmentation
+OD: Outlier Detection
+LD: Liveness Detection
+SC: Standardized Communication
+SCRM: Supply Chain Risk Management
+SBX: Sandboxing
+SB: Secure Boot
+SSP: Secure Simple Pairing
+NS: Network Segmentation
+CR: Cryptography
+EN: Encryption
+SA: Static Analysis
+RA: Risk Assessment
+KD: Keystroke Dynamics
+GT: Game Theory
+DLP: Data Loss Prevention
+PH: Password Hashing
+HG: Hypergame
+CS: Code Signing
+RL: Rate Limiting
+DB: Data Backups
+BBD: Behavior Based Detection
+IBE: Identity-Based Encryption (IBE)
+PM: Password Management
+BT: Blacklisting
+IR: Image Recognition
+DR: Dimensionality Reduction
+DW: Digital Watermark
+BC: Blockchain
+PP: Password Policy
+SM: Session Management
+CA: Continuous Authentication
+AD: Anomaly Detection
+FV: Formal Verification
+VM: Vulnerability Management
+BN: Bayesian Network
+RC: Rank Correlation
+SHMM: Statistical HMM
+PrP: Privacy Preserving
+CP: Certificate Pinning
+TS: Traffic Shaping
+NI: Noise Injection
+DS: Data Sanitization
+TA: Taint Analysis
+DBI: Dynamic Binary Instrumentation
+SI: Source Identification
+PMT: Patch Management
+SS: Spatial Smoothing
+DD: Defensive Distillation
+AdT: Adversarial Training
+DT: Deception Technology
+TAI: Trustworthy AI
+MS: Merkle Signature
+DLT: Distributed Ledgers
+LLM: Large Language Models
+ML/DL: Machine Learning/Deep Learning
+AC: Access Control
+OTP: ONE Time Password
+PSM: Password Strength Meters
+SIEM: Security Information and Event Management
+DNSSEC: Domain Name System Security Extensions
+RRAM: Resistive Random Access Memory
+IDS/IPS: Intrusion Detection/Prevention System
+VPN: Virtual Private Network
+SDN: Software Defined Network
+PKI: Public KEY Infrastructure
+IdM: Identity Management
+Https: Hypertext Transfer Protocol Secure
+CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart
+PT: Penetration Testing
+GA: Graphical Authentication
+SSL/TLS: Secure Sockets Layer/Transport Layer Security
+MFA: Multi Factor Authentication 
+DRM: Dynamic Resource Management
+3DFR: 3D Face Reconstruction
+VK: Virtual Keyboards
+DM: Darknet Monitoring
+MA: Mutual Authentication
+UBA: User Behavior Analytics
+DAS: Dynamic Analysis
+AM: Activity Monitoring
+GM: Graphical Model
+CFI: Control Flow Integrity
+SMF: Split Manufacturing
+SAT: Strong Authentication
+APT: Advanced Persistent Threat
+Disinformation: Disinformation/Misinformation

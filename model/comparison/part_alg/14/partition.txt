@@ -1,0 +1,2 @@
+[32, 59, 77, 86, 92, 134]
+['Mentions of MITM', 'CAPTCHA', 'Data Provenance', 'VPN', 'Biometrics', 'Moving Target Defense']

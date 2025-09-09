@@ -1,0 +1,9 @@
+valid   rse     rae     corr    s-mape
+mean    0.4984  0.6369  0.0920  0.4270
+std     0.0118  0.0260  0.0143  0.0171
+
+
+
+test    rse     rae     corr    s-mape
+mean    0.6975  0.7991  -0.0947 0.4892
+std     0.0610  0.0745  0.0300  0.0259
