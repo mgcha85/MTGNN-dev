@@ -105,28 +105,6 @@ class DataLoaderS(object):
             
         return [X, Y]
 
-    # def _batchify(self, idx_set, horizon):
-    #     n = len(idx_set) #94
-    #     X = torch.zeros((n-self.out_len, self.P, self.m)) #n samples x P time steps lookback x number of columns.
-    #     Y = torch.zeros((n-self.out_len, self.out_len, self.m)) 
-
-    #     #for inverting differnce, we need X[-1] from each sample
-    #     I = torch.zeros((n-self.out_len),self.m)
-
-    #     for i in range(n-self.out_len): #0-90
-    #         end = idx_set[i] - self.h + 1 #ex: assuming P=10, h=3, end= 12-3+1=10 #6
-    #         start = end - self.P #ex: start=10-10=0
-    #         X[i, :, :] = torch.from_numpy(self.rawdat[start:end, :]) #ex: 0-9 inclusive
-    #         Y[i, :, :] = torch.from_numpy(self.rawdat[idx_set[i]:idx_set[i]+self.out_len, :])#ex: 12 "predicting the 3rd future time step (if horizon is set to 3)"
-            
-    #         #for inversing difference, we only need last element in the observation X
-    #         I[i]=X[i,-1,:]
-
-    #         #differenced samples
-    #         X[i, :, :] = torch.from_numpy(self.diff_dat[start:end, :]) #ex: 0-9 inclusive
-    #         Y[i, :, :] = torch.from_numpy(self.diff_dat[idx_set[i]:idx_set[i]+self.out_len, :])#ex: 12 "predicting the 3rd future time step (if horizon is set to 3)"
-
-    #     return [X, Y, I]
 
     def get_batches(self, inputs, targets, batch_size, shuffle=True):
         length = len(inputs)
@@ -414,6 +392,3 @@ def load_node_feature(path):
 def normal_std(x):
     return x.std() * np.sqrt((len(x) - 1.) / (len(x)))
 
-
-
-            
