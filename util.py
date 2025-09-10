@@ -141,7 +141,7 @@ class DataLoaderS(object):
 
         # 컬럼 CSV 결정
         if columns_csv_path is None:
-            columns_csv_path = 'data/sm_data_g.csv'
+            columns_csv_path = '/content/data/sm_data_g.csv'
         with open(columns_csv_path, 'r') as f:
             reader = csv.reader(f)
             col = [c for c in next(reader)]
@@ -160,7 +160,7 @@ class DataLoaderS(object):
     def create_columns(self, columns_csv_path: str | None):
         # 기본 파일명
         if columns_csv_path is None:
-            file_name = 'data/sm_data_g.csv' if self.m == 123 else 'data/data.csv'
+            file_name = '/content/data/sm_data_g.csv' if self.m == 123 else '/content/data/data.csv'
         else:
             file_name = columns_csv_path
 
