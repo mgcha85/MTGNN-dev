@@ -456,7 +456,7 @@ def set_random_seed(seed):
 # =========================
 def main():
     parser = argparse.ArgumentParser(description='Unified: Random Search + Train + Save best')
-    parser.add_argument('--data', type=str, default=f'{NET_ROOT}/sm_data.txt', help='location of the data file')
+    parser.add_argument('--data', type=str, default=f'{NET_ROOT}/data/sm_data.txt', help='location of the data file')
     parser.add_argument('--log_interval', type=int, default=2000)
     parser.add_argument('--save', type=str, default=f'{NET_ROOT}/model/Bayesian/model.safetensors', help='path to save the best model')
     parser.add_argument('--hp_save', type=str, default=f'{NET_ROOT}/model/Bayesian/hp.txt', help='path to save best hyperparameters')
@@ -523,7 +523,7 @@ def main():
         window=args.seq_in_len, 
         normalize=args.normalize, 
         out=args.seq_out_len,
-        graph_csv_path=f"{NET_ROOT}/graph.csv"
+        graph_csv_path=f"{NET_ROOT}/data/graph.csv"
     )
 
     print('train X:', Data.train[0].shape)
