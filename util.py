@@ -22,7 +22,7 @@ class DataLoaderS(object):
         horizon, window,
         normalize=2, out=1,
         split_mode: str = "strict",
-        graph_csv_path: str = f"{NET_ROOT}/graph.csv",
+        graph_csv_path: str = f"{NET_ROOT}/data/graph.csv",
         columns_csv_path: str | None = None,   # None이면 자동 결정
     ):
         assert split_mode in ("strict", "legacy")
@@ -141,7 +141,7 @@ class DataLoaderS(object):
 
         # 컬럼 CSV 결정
         if columns_csv_path is None:
-            columns_csv_path = f'{NET_ROOT}/sm_data_g.csv'
+            columns_csv_path = f'{NET_ROOT}/data/sm_data_g.csv'
         with open(columns_csv_path, 'r') as f:
             reader = csv.reader(f)
             col = [c for c in next(reader)]
@@ -160,7 +160,7 @@ class DataLoaderS(object):
     def create_columns(self, columns_csv_path: str | None):
         # 기본 파일명
         if columns_csv_path is None:
-            file_name = f'{NET_ROOT}/sm_data_g.csv' if self.m == 123 else f'{NET_ROOT}/data.csv'
+            file_name = f'{NET_ROOT}/data/sm_data_g.csv' if self.m == 123 else f'{NET_ROOT}/data/data.csv'
         else:
             file_name = columns_csv_path
 
