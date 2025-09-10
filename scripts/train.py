@@ -3,7 +3,7 @@ import argparse
 import torch
 from net import gtnet                 # 기존 net.py의 gtnet 사용
 from core.config import Cfg
-from core.utils import resolve_devices, set_random_seed
+from utils import resolve_devices, set_random_seed
 from core.dataset import DataModule
 from core.trainer import Trainer
 from core.evaluator import Evaluator

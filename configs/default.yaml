@@ -1,0 +1,15 @@
+artifacts:
+  root: "/mnt/nas/mtgnn"    # 네트워크 드라이브 루트
+  project: "Bayesian"       # 하위 프로젝트 폴더
+  models_dir: "models"      # 모델 저장 폴더
+  plots_dir: "plots"        # 그림 저장 폴더(필요시)
+  meta_dir: "meta"          # hp.txt 등 메타 저장 폴더(필요시)
+
+saving:
+  save_best_only: true
+  best_filename: "best.safetensors"  # 항상 이 파일로 덮어쓰기
+  best_hparams_filename: "best_hp.json"
+
+logging:
+  table: "training_logs"    # Postgres 테이블명
+  experiment: "mtgnn_exp1"  # 실험명 태깅용(필요시)

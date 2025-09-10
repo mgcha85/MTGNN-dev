@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from net import gtnet
 from core.config import Cfg
-from core.utils import resolve_devices, set_random_seed
+from utils import resolve_devices, set_random_seed
 from core.dataset import DataModule
 from core.evaluator import Evaluator
 from core.checkpoint import load_ckpt
