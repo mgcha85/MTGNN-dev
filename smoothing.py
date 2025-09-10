@@ -53,7 +53,7 @@ def plot_double_exponential_smoothing(series, alphas, betas, attack):
 
 alpha=float(0.1)
 beta=float(0.3)
-file_name=f'{NET_ROOT}/data.txt'
+file_name=f'{NET_ROOT}/data/data.txt'
 fin = open(file_name)
 rawdat = np.loadtxt(fin, delimiter='\t')
 print(rawdat)
