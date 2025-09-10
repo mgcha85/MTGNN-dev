@@ -1,6 +1,8 @@
 from matplotlib import pyplot as plt
 import numpy as np
 import csv
+from config import NET_ROOT
+
 
 def exponential_smoothing(series, alpha):
 
@@ -49,10 +51,9 @@ def plot_double_exponential_smoothing(series, alphas, betas, attack):
     plt.show()
 
 
-ROOT_DIR = '/content/data'
 alpha=float(0.1)
 beta=float(0.3)
-file_name=f'{ROOT_DIR}/data.txt'
+file_name=f'{NET_ROOT}/data.txt'
 fin = open(file_name)
 rawdat = np.loadtxt(fin, delimiter='\t')
 print(rawdat)
@@ -74,7 +75,7 @@ print(len(smoothed),len(smoothed[0]))
 
 
 
-with open(f"{ROOT_DIR}/sm_data.csv", "w",newline="") as f:
+with open(f"{NET_ROOT}/sm_data.csv", "w",newline="") as f:
     writer = csv.writer(f)
     writer.writerows(smoothed)
 

@@ -15,7 +15,7 @@ import random
 from safetensors.torch import load_file
 from net import gtnet
 import torch.nn as nn
-
+from config import NET_ROOT
 
 pyplot.rcParams['savefig.dpi'] = 1200
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -326,7 +326,7 @@ def plot_forecast(data,forecast,confidence,attack,solutions,index,col,alarming=T
     fig.set_size_inches(10, 7) 
 
     #save and show the forecast
-    images_dir = 'model/Bayesian/forecast/plots/'
+    images_dir = f'{NET_ROOT}/model/Bayesian/forecast/plots/'
     pyplot.savefig(images_dir+a.replace('/','_')+'.png', bbox_inches="tight")
     pyplot.savefig(images_dir+a.replace('/','_')+".pdf", bbox_inches = "tight", format='pdf')
     pyplot.show(block=False)
@@ -343,7 +343,7 @@ def save_data(data, forecast, confidence, variance, col):
         c=confidence[:,i]
         v=variance[:,i]
         name=col[i]
-        file_dir = 'model/Bayesian/forecast/data/'
+        file_dir = f'{NET_ROOT}/model/Bayesian/forecast/data/'
         with open(file_dir+name.replace('/','_')+'.txt', 'w') as ff:
             ff.write('Data: '+str(d.tolist())+'\n')
             ff.write('Forecast: '+str(f.tolist())+'\n')
@@ -354,7 +354,7 @@ def save_data(data, forecast, confidence, variance, col):
 #saves the forecasted trend's gap between attack and its relevant solutions to a csv file. The gap is for 3 years resulting in 3 values per solution.
 def save_gap(forecast, attack, solutions,index):
     # write the data and forecast
-    with open('model/Bayesian/forecast/gap/'+consistent_name(attack).replace('/','_')+'_gap.csv', 'w', newline='') as file:
+    with open(f'{NET_ROOT}/model/Bayesian/forecast/gap/'+consistent_name(attack).replace('/','_')+'_gap.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         # Write the list as a row
         writer.writerow(['Solution','2023','2024','2025'])
@@ -428,10 +428,10 @@ fixed_seed = 123
 set_random_seed(fixed_seed)
 
 
-data_file='./data/sm_data.txt'
-model_file='model/Bayesian/o_model.safetensors'
-nodes_file='data/data.csv'
-graph_file='data/graph.csv'
+data_file=f'{NET_ROOT}/data/sm_data.txt'
+model_file=f'{NET_ROOT}/model/Bayesian/o_model.safetensors'
+nodes_file=f'{NET_ROOT}/data/data.csv'
+graph_file=f'{NET_ROOT}/data/graph.csv'
 
 
 #read the data
@@ -470,7 +470,7 @@ X = X.to(dtype=torch.float, device=device)
 X.requires_grad = True #explainability
 dat = torch.from_numpy(dat).to(device=device)
 
-hp_path = "model/Bayesian/hp.txt"
+hp_path = f"{NET_ROOT}/model/Bayesian/hp.txt"
 with open(hp_path, "r") as f:
     best_hp = ast.literal_eval(f.read())
 

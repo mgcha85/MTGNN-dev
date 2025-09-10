@@ -37,18 +37,6 @@ def inverse_diff_3d(output, I,shift):
         output[:,i,:]=torch.exp(output[:,i,:]+torch.log(output[:,i-1,:]+shift))-shift
     return output
 
-# def inverse_diff_2d(output, I):
-#     output[0,:]+=I
-#     for i in range(1,output.shape[0]):
-#         output[i,:]+= output[i-1,:]
-#     return output
-
-# def inverse_diff_3d(output, I):
-#     output[:,0,:]+=I
-#     for i in range(1,output.shape[1]):
-#         output[:,i,:]+= output[:,i-1,:]
-#     return output
-
 def plot_data(data,title):
     x=range(1,len(data)+1)
     plt.plot(x,data,'b-',label='Actual')

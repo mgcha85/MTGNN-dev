@@ -11,6 +11,7 @@ import random
 from random import randrange
 from matplotlib import pyplot as plt
 from safetensors.torch import save_file
+from config import NET_ROOT
 plt.rcParams['savefig.dpi'] = 1200
 
 # --- util / o_util 양쪽 호환 ---
@@ -19,9 +20,6 @@ from util import *
 
 from net import gtnet
 from trainer import Optim
-
-NET_ROOT = os.getenv("NET_ROOT", r"/content/hanlab_share")  # 원하는 네트워크 드라이브 루트 경로로 바꿔도 됨
-ROOT_DIR = "/content/data"
 
 # =========================
 # 보조 함수들 (기존 코드를 유지)
@@ -108,7 +106,7 @@ def save_metrics_1d(predict, test, title, type_):
     rae = (sum_absolute_diff / sum_absolute_r).item()
 
     title_s = title.replace('/','_')
-    out_dir_rel = f'model/Bayesian/{type_}'
+    out_dir_rel = f'{NET_ROOT}/model/Bayesian/{type_}'
     out_dir = abs_path(out_dir_rel)         # <<< 추가
     ensure_dir(out_dir)                      # <<< 변경 (abs 적용된 경로)
     with open(os.path.join(out_dir, f'{title_s}_{type_}.txt'), "w") as f:   # <<< 변경
@@ -154,7 +152,7 @@ def plot_predicted_actual(predicted, actual, title, type_, variance, confidence_
     plt.yticks(fontsize=13)
     
     title_s = title.replace('/','_')
-    out_dir_rel = f'model/Bayesian/{type_}'
+    out_dir_rel = f'{NET_ROOT}/model/Bayesian/{type_}'
     out_dir = abs_path(out_dir_rel)                          # <<< 추가
     ensure_dir(out_dir)                                      # <<< 변경
     plt.savefig(os.path.join(out_dir, f'{title_s}_{type_}.png'), bbox_inches="tight")   # <<< 변경
@@ -458,10 +456,10 @@ def set_random_seed(seed):
 # =========================
 def main():
     parser = argparse.ArgumentParser(description='Unified: Random Search + Train + Save best')
-    parser.add_argument('--data', type=str, default=f'{ROOT_DIR}/sm_data.txt', help='location of the data file')
+    parser.add_argument('--data', type=str, default=f'{NET_ROOT}/sm_data.txt', help='location of the data file')
     parser.add_argument('--log_interval', type=int, default=2000)
-    parser.add_argument('--save', type=str, default='model/Bayesian/model.safetensors', help='path to save the best model')
-    parser.add_argument('--hp_save', type=str, default='model/Bayesian/hp.txt', help='path to save best hyperparameters')
+    parser.add_argument('--save', type=str, default=f'{NET_ROOT}/model/Bayesian/model.safetensors', help='path to save the best model')
+    parser.add_argument('--hp_save', type=str, default=f'{NET_ROOT}/model/Bayesian/hp.txt', help='path to save best hyperparameters')
     parser.add_argument('--optim', type=str, default='adam')
     parser.add_argument('--L1Loss', type=bool, default=True)
     parser.add_argument('--normalize', type=int, default=2)
@@ -525,7 +523,7 @@ def main():
         window=args.seq_in_len, 
         normalize=args.normalize, 
         out=args.seq_out_len,
-        graph_csv_path=f"{ROOT_DIR}/graph.csv"
+        graph_csv_path=f"{NET_ROOT}/graph.csv"
     )
 
     print('train X:', Data.train[0].shape)
