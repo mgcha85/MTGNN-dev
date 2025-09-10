@@ -21,6 +21,7 @@ from net import gtnet
 from trainer import Optim
 
 NET_ROOT = os.getenv("NET_ROOT", r"/content/hanlab_share")  # 원하는 네트워크 드라이브 루트 경로로 바꿔도 됨
+ROOT_DIR = "/content/data"
 
 # =========================
 # 보조 함수들 (기존 코드를 유지)
@@ -457,7 +458,7 @@ def set_random_seed(seed):
 # =========================
 def main():
     parser = argparse.ArgumentParser(description='Unified: Random Search + Train + Save best')
-    parser.add_argument('--data', type=str, default='./data/sm_data.txt', help='location of the data file')
+    parser.add_argument('--data', type=str, default=f'{ROOT_DIR}/sm_data.txt', help='location of the data file')
     parser.add_argument('--log_interval', type=int, default=2000)
     parser.add_argument('--save', type=str, default='model/Bayesian/model.safetensors', help='path to save the best model')
     parser.add_argument('--hp_save', type=str, default='model/Bayesian/hp.txt', help='path to save best hyperparameters')
@@ -514,8 +515,18 @@ def main():
     prop_alphas = [0.05,0.1,0.15,0.2,0.3,0.4,0.6,0.8]
     tanh_alphas = [0.05,0.1,0.5,1,2,3,5,7,9]
 
-    # 데이터 로더
-    Data = DataLoaderS(args.data, 0.43, 0.30, device, args.horizon, args.seq_in_len, args.normalize, args.seq_out_len)
+    # 데이터 로더    
+    Data = DataLoaderS(
+        file_name=args.data, 
+        train=0.43, 
+        valid=0.30, 
+        device=device, 
+        horizon=args.horizon, 
+        window=args.seq_in_len, 
+        normalize=args.normalize, 
+        out=args.seq_out_len,
+        graph_csv_path=f"{ROOT_DIR}/graph.csv"
+    )
 
     print('train X:', Data.train[0].shape)
     print('train Y:', Data.train[1].shape)

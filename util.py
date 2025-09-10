@@ -22,7 +22,7 @@ class DataLoaderS(object):
         horizon, window,
         normalize=2, out=1,
         split_mode: str = "strict",
-        graph_csv_path: str = "data/graph.csv",
+        graph_csv_path: str = "/content/data/graph.csv",
         columns_csv_path: str | None = None,   # None이면 자동 결정
     ):
         assert split_mode in ("strict", "legacy")
