@@ -443,7 +443,7 @@ set_random_seed(fixed_seed)
 
 
 data_file=f'{NET_ROOT}/data/sm_data.txt'
-model_file=f'{NET_ROOT}/model/Bayesian/o_model.safetensors'
+model_file=f'{NET_ROOT}/model/Bayesian/model.safetensors'
 nodes_file=f'{NET_ROOT}/data/data.csv'
 graph_file=f'{NET_ROOT}/data/graph.csv'
 
