@@ -79,4 +79,3 @@ with open(f"{NET_ROOT}/data/sm_data.csv", "w",newline="") as f:
     writer = csv.writer(f)
     writer.writerows(smoothed)
 
-

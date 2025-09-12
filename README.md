@@ -80,3 +80,10 @@ python train_multi_step.py --adj_data ./data/sensor_graph/adj_mx_bay.pkl --data 
   year={2020}
 }
 ```
+
+
+
+## 입력 데이터
+data.txt - 각종 보안 위협의 시간별 횟수
+data.csv - data.txt에 라벨링한 데이터
+graph.csv - data.csv의 컬럼간의 관계성 메타 데이터
