@@ -23,14 +23,14 @@ fi
 log "Start pipeline (NET_ROOT=${NET_ROOT})"
 
 # 1) Smoothing
-log "Step 1: smoothing.py"
-${PYTHON_BIN} smoothing.py \
-  >> "${LOG_DIR}/smoothing_${RUN_ID}.log" 2>&1
+# log "Step 1: smoothing.py"
+# ${PYTHON_BIN} smoothing.py \
+#   >> "${LOG_DIR}/smoothing_${RUN_ID}.log" 2>&1
 
 # 2) Train
 log "Step 2: train_new.py"
 ${PYTHON_BIN} train_new.py \
-  --data "${NET_ROOT}/data/sm_data.txt" \
+  --data "${NET_ROOT}/data/Norm_CyberTrend_Forecasting_All.txt" \
   --save "${NET_ROOT}/model/Bayesian/model.safetensors" \
   --hp_save "${NET_ROOT}/model/Bayesian/hp.txt" \
   >> "${LOG_DIR}/train_${RUN_ID}.log" 2>&1
