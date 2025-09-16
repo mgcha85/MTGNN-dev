@@ -307,9 +307,9 @@ def main(
 ):
     set_random_seed(123)
 
-    data_file = f'{NET_ROOT}/data/Norm_CyberTrend_Forecasting_All.txt'
+    data_file = f'{NET_ROOT}/data/Smoothed_CyberTrend_Forecasting_All.txt'
     model_file = f'{NET_ROOT}/model/Bayesian/model.safetensors'
-    nodes_file = f'{NET_ROOT}/data/Norm_CyberTrend_Forecasting_All.csv'
+    nodes_file = f'{NET_ROOT}/data/Smoothed_CyberTrend_Forecasting_All.csv'
     graph_file = f'{NET_ROOT}/data/graph.csv'
     hp_path = f"{NET_ROOT}/model/Bayesian/hp.txt"
 
