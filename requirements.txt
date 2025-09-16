@@ -6,3 +6,4 @@ torch
 scikit_learn
 seaborn
 safetensors
+PyYaml

@@ -3,6 +3,21 @@ import torch
 import random
 import numpy as np
 from dataclasses import dataclass
+import yaml
+
+def open_yaml(path: str) -> dict:
+    """
+    YAML 파일을 읽어서 Python dict로 반환하는 함수.
+    
+    Args:
+        path (str): YAML 파일 경로
+    
+    Returns:
+        dict: YAML 내용 (예: {'solution_columns': [...], 'attack_columns': [...]})
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+    return data
 
 def resolve_devices(device_str: str = "auto"):
     """
