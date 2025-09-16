@@ -480,7 +480,8 @@ def main():
     parser.add_argument('--trials', type=int, default=20, help='random search trials')
     parser.add_argument('--seed', type=int, default=123)
     args = parser.parse_args()
-
+    print(args)
+    
     args.save = abs_path(args.save)
     args.hp_save = abs_path(args.hp_save)
 

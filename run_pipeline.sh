@@ -3,7 +3,7 @@ set -euo pipefail
 
 # === Config ===
 export TZ=Asia/Seoul
-export NET_ROOT="${NET_ROOT:-/opt/mtgnn}"          # 외부에서 NET_ROOT 주입 가능
+export NET_ROOT="${NET_ROOT:/content/hanlab_share/MTGNN}"          # 외부에서 NET_ROOT 주입 가능
 PYTHON_BIN="${PYTHON_BIN:-python}"                 # 가상환경 python 경로를 넣어도 됨
 LOG_DIR="${NET_ROOT}/logs"
 RUN_ID="$(date +'%Y%m%d_%H%M%S')"
