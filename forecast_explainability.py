@@ -16,6 +16,7 @@ from safetensors.torch import load_file
 from net import gtnet
 import torch.nn as nn
 from config import NET_ROOT
+import argparse
 
 pyplot.rcParams['savefig.dpi'] = 1200
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -441,6 +442,11 @@ n, m = rawdat.shape
 #load column names and dictionary of (column name, index)
 col,index=create_columns(nodes_file)
 
+# ===== NEW: CLI args =====
+parser = argparse.ArgumentParser(description="Forecast & saliency visualization for GTNet")
+parser.add_argument("--node", type=int, default=0, help="Target node index for saliency (0-based). Default: 3")
+args = parser.parse_args()
+
 
 #build the graph in the format {attack:list of solutions}
 graph=build_graph(graph_file)
@@ -573,9 +579,9 @@ print('output shape:',Y.shape)
 
 time_saliency_maps=[]
 saliency_map_36=None
-node=3
+# node=3
 for t in range(0,36):
-    saliency_map = model.compute_saliency(X,t,node,True) #Explainability, set second argument to True if you want timestep importance
+    saliency_map = model.compute_saliency(X,t,args.node,True) #Explainability, set second argument to True if you want timestep importance
     time_saliency_maps.append(saliency_map)
     #2d
     if saliency_map_36==None:
@@ -585,7 +591,7 @@ for t in range(0,36):
 
 
 #visualise_saliency_maps(time_saliency_maps)
-visualise_saliency_map(saliency_map_36,col[node])
+visualise_saliency_map(saliency_map_36, col[args.node])
 sys.exit()
 
 
