@@ -427,12 +427,11 @@ def build_graph(file_name):
 fixed_seed = 123
 set_random_seed(fixed_seed)
 
-
-data_file=f'{NET_ROOT}/data/sm_data.txt'
-model_file=f'{NET_ROOT}/model/Bayesian/model.safetensors'
-nodes_file=f'{NET_ROOT}/data/data.csv'
-graph_file=f'{NET_ROOT}/data/graph.csv'
-
+data_file = f'{NET_ROOT}/data/Smoothed_CyberTrend_Forecasting_All.txt'
+model_file = f'{NET_ROOT}/model/Bayesian/model.safetensors'
+nodes_file = f'{NET_ROOT}/data/Smoothed_CyberTrend_Forecasting_All.csv'
+graph_file = f'{NET_ROOT}/data/graph.csv'
+hp_path = f"{NET_ROOT}/model/Bayesian/hp.txt"
 
 #read the data
 fin = open(data_file)
@@ -470,7 +469,6 @@ X = X.to(dtype=torch.float, device=device)
 X.requires_grad = True #explainability
 dat = torch.from_numpy(dat).to(device=device)
 
-hp_path = f"{NET_ROOT}/model/Bayesian/hp.txt"
 with open(hp_path, "r") as f:
     best_hp = ast.literal_eval(f.read())
 
